@@ -1,8 +1,10 @@
 package com.lesson.memo.controller;
 
 import java.time.LocalDateTime;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
@@ -31,7 +33,12 @@ public class MemoController {
 
     @GetMapping
     public String list(Model model) {
-        List<Memo> memos = memoRepository.findAll();
+//        List<Memo> memos = memoRepository.findAllByOrderByPriority();   
+    	  List<Memo> memos= memoRepository.findAll().stream()
+    			.sorted(Comparator.comparingInt(memo ->
+    			Priority.valueOf(memo.getPriority().toString()).getPriorityLevel()
+    			))
+    			.collect(Collectors.toList());
         model.addAttribute("memos", memos);
 //        System.out.println(Priority.values());
         return "memo-list";
