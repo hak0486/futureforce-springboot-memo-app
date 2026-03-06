@@ -518,16 +518,35 @@ textarea {
 .priority-pill.low    { background:#d4edda; color:#155724; }
 
 /* 選択中 */
-.priority-pill:has(.priority-radio:checked) {
-  border-color: #000;
+/*.priority-pill:has(.priority-radio:checked) {*/
+/*  border-color: #000;*/
+/*}*/
+
+/*.priority-pill.high:has(.priority-radio:checked) {*/
+/*  background:#dc3545; color:#fff;*/
+/*}*/
+/*.priority-pill.medium:has(.priority-radio:checked) {*/
+/*  background:#ffc107; color:#212529;*/
+/*}*/
+/*.priority-pill.low:has(.priority-radio:checked) {*/
+/*  background:#198754; color:#fff;*/
+/*}*/
+
+
+.priority-radio:checked + .priority-pill.high {
+  background:#dc3545;
+  color:#fff;
+  border-color:#000;
 }
 
-.priority-pill.high:has(.priority-radio:checked) {
-  background:#dc3545; color:#fff;
+.priority-radio:checked + .priority-pill.medium {
+  background:#ffc107;  
+  color:#212529;
+  border-color:#000;
 }
-.priority-pill.medium:has(.priority-radio:checked) {
-  background:#ffc107; color:#212529;
-}
-.priority-pill.low:has(.priority-radio:checked) {
-  background:#198754; color:#fff;
+
+.priority-radio:checked + .priority-pill.low {
+  background:#198754;
+  color:#fff;
+  border-color:#000;
 }
