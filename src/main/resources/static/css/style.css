@@ -58,6 +58,12 @@ body {
   color: transparent;
 }
 
+.search-box {
+	height: 100px;
+	width: 100px;
+	border:1px solid black;
+}
+
 .form-title {
   font-size: 1.875rem;
   font-weight: 700;
