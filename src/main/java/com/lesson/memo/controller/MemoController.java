@@ -50,19 +50,18 @@ public class MemoController {
     	List<Memo> memos;
     	if (keyword == null || keyword == "") {
     		// 全件取得
-    		memos = memoRepository.findAll().stream()
-    				.sorted(Comparator.comparingInt(
-    						memo -> Priority.valueOf(memo.getPriority().toString()).getPriorityLevel()
-         			))
-         			.collect(Collectors.toList());        	 
+    		memos = memoRepository.findAll();       	 
     	} else {
         	 // タイトルと内容部分一致
-    		memos = memoRepository.findByTitleContainingOrContentContaining(keyword, keyword).stream()
-    				.sorted(Comparator.comparingInt(
-          					memo -> Priority.valueOf(memo.getPriority().toString()).getPriorityLevel()
-          			))
-          			.collect(Collectors.toList());
+    		memos = memoRepository.findByTitleContainingOrContentContaining(keyword, keyword);
+    				
         }
+    	// 優先度でソート（並び替え）
+    	memos = memos.stream().sorted(Comparator.comparingInt(
+				memo -> Priority.valueOf(memo.getPriority().toString()).getPriorityLevel()
+		))
+		.collect(Collectors.toList());
+    	
         model.addAttribute("memos", memos);
         model.addAttribute("keyword", keyword); 
     	 
