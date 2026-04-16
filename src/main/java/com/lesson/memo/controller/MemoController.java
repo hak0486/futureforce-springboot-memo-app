@@ -48,7 +48,7 @@ public class MemoController {
     @GetMapping("/search")
     public String search(@RequestParam String keyword, Model model) {  
     	List<Memo> memos;
-    	if (keyword == null || keyword == "") {
+    	if (keyword == null || keyword.trim() == "") {
     		// 全件取得
     		memos = memoRepository.findAll();       	 
     	} else {
