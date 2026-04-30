@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>サインイン</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+</head>
+
+<body>
+	<h1 class="app-title">サインイン</h1>
+	<form id="contact-form" th:action="@{/admin/signin}" th:object="${admin}" method="post" novalidate>
+		<div class="form-grid">
+			<div class="form-group">
+    			<input type="email" id="email"  name="email" placeholder="メールアドレス" required>
+				<div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error-message"></div>
+
+    			<input type="password" id="password"  name="password" placeholder="パスワード" required>
+				<div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error-message"></div>
+				
+    			<button type='submit'>サインイン</button>
+			</div>
+		</div>
+	</form>
+	<script th:src="@{/js/common.js}"></script>
+</body>
+
+</html>
+
