@@ -23,10 +23,12 @@ public class Admin {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Column(name = "last_name", nullable = false, length = 255)
+    @NotNull
+    @Column(name = "last_name", length = 255)
     private String lastName;
     
-    @Column(name = "first_name", nullable = false, length = 255)
+    @NotNull
+    @Column(name = "first_name", length = 255)
     private String firstName;
 
     @Email(message = "メールアドレスを入力してください")
