@@ -42,7 +42,6 @@ public class AdminController {
             BindingResult result,
             Model model
     ) {      	
-    	System.out.println(admin);
     	if (result.hasErrors()) {
     		return "admin-signup";
     	}
@@ -53,7 +52,6 @@ public class AdminController {
         
         admin.setPassword(passwordEncoder.encode(admin.getPassword()));
         
-        System.out.println(admin);
         adminRepository.save(admin);
         return "redirect:/memo";
     }
