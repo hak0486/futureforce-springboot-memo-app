@@ -26,10 +26,11 @@
     			<input type="password" id="password"  name="password" placeholder="パスワード" required>
 				<div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error-message"></div>
 				
-    			<button type='submit'>サインアップ</button>
+    			<button type='submit' class="btn btn-primary">サインアップ</button>
 			</div>
 		</div>
 	</form>
+	<a th:href="@{/admin/signin}" class="btn btn-primary">サインイン</a>
 	<script th:src="@{/js/common.js}"></script>
 </body>
 
