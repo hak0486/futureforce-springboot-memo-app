@@ -45,7 +45,6 @@ public class AdminController {
     	if (result.hasErrors()) {
     		return "admin-signup";
     	}
-    	// エラー表示に必要な変数を用意
     	model.addAttribute("admin", admin);
         admin.setCreatedAt(LocalDateTime.now());
         admin.setUpdatedAt(LocalDateTime.now());
