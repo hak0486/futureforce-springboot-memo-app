@@ -45,14 +45,13 @@ public class AdminController {
     	if (result.hasErrors()) {
     		return "admin-signup";
     	}
-    	model.addAttribute("admin", admin);
         admin.setCreatedAt(LocalDateTime.now());
         admin.setUpdatedAt(LocalDateTime.now());
         
         admin.setPassword(passwordEncoder.encode(admin.getPassword()));
         
         adminRepository.save(admin);
-        return "redirect:/memo";
+        return "redirect:/admin/signin";
     }
     
     // 管理者認証画面の表示
