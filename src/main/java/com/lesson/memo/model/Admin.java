@@ -24,15 +24,15 @@ public class Admin {
     private Long id;
     
     @NotNull
-    @Column(name = "last_name", length = 255)
+    @Column(name = "last_name", nullable = false, length = 255)
     private String lastName;
     
     @NotNull
-    @Column(name = "first_name", length = 255)
+    @Column(name = "first_name", nullable = false, length = 255)
     private String firstName;
 
-    @Email(message = "メールアドレスを入力してください")
-    @NotBlank()
+    @Email(message = "メールアドレスの形式で入力してください")
+    @NotBlank(message = "メールアドレスを入力してください")
     @Column(unique = true, nullable = false, length = 255)
     private String email;
 
